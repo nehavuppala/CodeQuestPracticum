@@ -1,0 +1,10 @@
+package ex;
+public class Q1Demo
+{
+     public int[] fib(int n)
+     {
+        // write code here 
+       // NOTE: don't  write System.out.println. assign value to array	
+        return 0;
+     }
+}

@@ -1,0 +1,206 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="icon" type="image/jpg" href="{% static 'letscode.jpg' %}"/>
+    <title>MSIT Letscode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+#top
+        {
+        display: flex;
+            margin-bottom: 10px;
+
+        }
+
+        #top img
+        {
+            margin-left: 40px;
+            margin-top: 18px;
+        }
+
+
+
+        #top button
+        {
+            margin-top: 50px;
+
+            height: 40px;
+            width:85px;
+            background-color: white;
+            color:#1B2244;
+            margin-right: 5px;
+            /* border: 1px solid #1B2244; */
+            font-size: 20px;
+        }
+
+        #line1
+        {
+            margin-bottom: 5px;
+            border-bottom: 1px solid black;
+            border-radius: 3px;
+        }
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+    height: border-box;
+    text-align: center;
+   background:whitesmoke;//optional
+}
+
+
+    /* Dropdown Button */
+.dropbtn {
+    background-color: white;
+    color: #1B2244;
+    padding: 16px;
+    font-size: 17px;
+    height: 60px;
+    display: block;
+    border: none;
+    width: 300px;
+    text-align: left;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 180px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover
+{
+    background-color: white;
+    color:#1B2244;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #1B2244;
+    color:white;
+}
+
+.vl {
+    border-left: 1px solid #1B2244;
+    height: 45px;
+    margin-top: 45px;
+}
+
+#tests {
+    margin-top: 25px;
+    margin-left: 420px;
+}
+
+</style>
+</head>
+<body>
+  <div id="top">
+       <span><img src="{% static 'download.png' %}" width="180px" height="60px"/></span>
+       <span><img src="{% static 'letscode.jpg' %}" width="180px" height="60px" style="margin-left: 20px"/></span>
+
+       <a class="dropbtn" href="{% url "home" %}" style="margin-left: 600px;font-size: 20px;margin-top: 50px;text-decoration:None;">Home</a>
+
+
+       <div class="vl"></div>
+          <div class="dropdown">
+       <button class="dropbtn" style="width: 110px;" >Questions</button>
+        <div class="dropdown-content">
+      <a href="{% url 'test' %}">Create Question</a>
+      <a href="{% url 'viewq' %}">View Questions</a>
+      <a href="{% url 'edits' %}">Edit Questions</a>
+      <a href="{% url 'qdel' %}">Delete Questions</a>
+
+  </div>
+        </div>
+       <div class="vl"></div>
+         <div class="dropdown">
+       <button class="dropbtn">Tests</button>
+              <div class="dropdown-content">
+      <a href="{% url 'ctext' %}">Create Test</a>
+      <a href="{% url 'vtest' %}">View Tests</a>
+      <a href="{% url 'etest' %}">Edit Tests</a>
+	  <a href="{% url 'tdel' %}">Delete Tests</a>
+
+  </div>
+        </div>
+
+      <div class="vl"></div>
+         <div class="dropdown">
+       <button class="dropbtn">Results</button>
+              <div class="dropdown-content">
+    <a href="{% url 'sres' %}">View Results</a>
+
+
+  </div>
+        </div>
+      <div class="vl"></div>
+        <a  class="dropbtn" href="{% url "out" %}" style="width: 110px;font-size: 20px;margin-top: 50px;text-decoration:None;margin-left: 5px;margin-right: 5px;">Logout</a>
+
+
+
+   </div>
+
+   <div id="line1">
+
+   </div>
+
+   <form name="fg" action="/editform" method="post">
+ {% csrf_token %}
+<h1 align="center">Edit Questions details </h1>
+ <br><br>
+ <br>
+
+    <div align="center">
+        <select style="width:40% ; height: auto;" name="et" size="{{ k3 }}" >
+            {% for di in k2 %}
+                 <option><h1>{{ di }}</h1></option>
+            {% endfor %}
+        </select>
+    <br>
+    <br>
+    <input  type="submit" name="take test" value="Edit">
+    <br>
+    <br>
+    <br>
+    <h1>{{ msg }}</h1>
+    </div>
+
+
+
+
+
+ </form>
+
+</body>
+
+</html>

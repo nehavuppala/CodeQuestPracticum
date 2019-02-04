@@ -1,0 +1,203 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="icon" type="image/jpg" href="{% static 'letscode.jpg' %}"/>
+    <title>MSIT Letscode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+#top
+        {
+        display: flex;
+
+        }
+
+        #top img
+        {
+            margin-left: 40px;
+            margin-top: 18px;
+        }
+
+
+
+        #top button
+        {
+            margin-top: 50px;
+
+            height: 40px;
+            width:85px;
+            background-color: white;
+            color:#1B2244;
+            margin-right: 5px;
+            /* border: 1px solid #1B2244; */
+            font-size: 20px;
+        }
+
+        #line1
+        {
+            margin-bottom: 5px;
+            border-bottom: 1px solid black;
+            border-radius: 3px;
+        }
+
+
+
+    /* Dropdown Button */
+.dropbtn {
+    background-color: white;
+    color: #1B2244;
+    padding: 16px;
+    font-size: 17px;
+    height: 60px;
+    display: block;
+    border: none;
+    width: 300px;
+    text-align: left;
+
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 180px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover
+{
+    background-color: white;
+    color:#1B2244;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #1B2244;
+    color:white;
+}
+
+.vl {
+    border-left: 1px solid #1B2244;
+    height: 45px;
+    margin-top: 65px;
+}
+
+ #line
+        {
+            margin-top:10px;
+            border-bottom: 1px solid black;
+
+        }
+
+</style>
+</head>
+
+<body>
+  <div id="top">
+       <span><img src="{% static 'download.png' %}" width="180px" height="60px"/></span>
+       <span><img src="{% static 'letscode.jpg' %}" width="180px" height="60px" style="margin-left: 20px"/></span>
+
+       <a class="dropbtn" href="{% url "adminhome" %}" style="margin-left: 680px;font-size: 20px;text-decoration:None;margin-top: 60px;">Home</a>
+
+
+       <div class="vl"></div>
+          <div class="dropdown">
+       <button class="dropbtn" style="width: 100px;margin-top: 60px;margin-left: 5px;margin-right: 5px;" >Batch</button>
+        <div class="dropdown-content">
+    <a href="{% url "upload" %}">Add Batch</a>
+    <a href="{% url "list" %}">View Batch</a>
+    <a href="{% url 'bdel' %}">Delete Batch</a>
+
+  </div>
+        </div>
+
+
+
+
+       <div class="vl"></div>
+          <div class="dropdown">
+       <button class="dropbtn" style="margin-top: 60px;width: 120px;margin-left: 5px;margin-right: 5px;" >Grouping</button>
+        <div class="dropdown-content">
+    <a href="{% url 'cgroup' %}">Create/Remove Group</a>
+    <a href="{% url 'vgp' %}">View Group Users</a>
+
+
+  </div>
+        </div>
+
+
+      <div class="vl"></div>
+
+     <a  class="dropbtn" href="{% url "out" %}" style="width: 100px;font-size: 20px;margin-top: 60px;text-decoration:None;margin-left: 0px;margin-right: 5px;">Logout</a>
+
+
+   </div>
+
+   <div id="line1">
+
+   </div>
+
+ <form name="fg" action="/gpvst" method="post">
+ {% csrf_token %}
+
+<br>
+  <h1 align="center">View Groups</h1>
+ <br><br>
+ <br>
+
+    <div align="center">
+        <select style="width:40% ; height: auto;" name="gp" size="{{ k3 }}" >
+            {% for di in k2 %}
+                 <option><h1>{{ di }}</h1></option>
+            {% endfor %}
+        </select>
+    <br>
+    <br>
+    <input  type="submit" name="take test" value="View Users">
+    <br>
+    <br>
+    <br>
+    <h1>{{ msg }}</h1>
+    </div>
+
+
+    <div id="line">
+
+   </div>
+
+ <div id="footer">
+
+       <p style="margin-top: 14px; font-color:#1B2244;font-size: 16px;"><b>Copyrights@ MSIT (2017-19 Batch) Sridevi Kattari(Mentor),Avinash Mirtipati(17031J0059), Kamadi Raju(17031J0070), Neha Vuppala(17031J0043)</b></p>
+
+   </div>
+
+ </form>
+</body>
+
+</html>

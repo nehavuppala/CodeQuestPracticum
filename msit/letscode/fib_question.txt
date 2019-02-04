@@ -1,0 +1,5 @@
+write a java program to print fibonacci series  without using recursion.
+sample input 
+4
+sample output
+0 1 1 2

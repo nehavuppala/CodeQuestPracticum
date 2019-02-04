@@ -1,0 +1,18 @@
+create table users(uemail varchar(35) primary key,pwd varchar(15),uid varchar(10),uname varchar(50),umob varchar(10),ugen varchar(8),role varchar(10));
+
+create table questions(qid varchar(10) primary key,qname text,qtest text, qtester text,qcode text);
+
+create table testcases(qid varchar(10),qin text,qout text, foreign key (qid) references questions(qid) on update cascade on delete cascade);
+
+create table tests(tid int auto_increment primary key,tname text,qid varchar(10),active varchar(6), max_score int,foreign key (qid) references questions(qid) on update cascade on delete cascade);
+
+
+create table results(uid varchar(50),qid varchar(50),max_score int,edate date,remarks varchar(30));
+
+create table coding(uid varchar(50),qid varchar(50),code text);
+
+create table batch(bname varchar(10));  
+
+create table grouping(gname varchar(50) primary key);
+
+create table team(mid varchar(50),sid varchar(50),foreign key (mid) references grouping(gname) on update cascade on delete cascade);

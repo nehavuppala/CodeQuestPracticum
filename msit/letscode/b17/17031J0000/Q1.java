@@ -1,0 +1,108 @@
+ package ex;
+import java.util.Arrays;
+public class Q1
+{
+   public static void main(String args[])
+   {
+       int t1=0,t2=0,t3=0,t4=0,count=0;
+       int a[]=new int[]{0,1,1,2,3};
+       int b[]=new int[]{0,1,1,2,3,5,8};
+       int c[]=new int[]{0,1};
+       int d[]=new int[]{0,1,1};    
+       Q1Demo q=new Q1Demo();   
+       if(Arrays.equals(q.fib(5),a))
+       {
+             t1=1;
+       }
+       if(Arrays.equals(q.fib(7),b))
+      {
+            t2=1; 
+      }
+       if(Arrays.equals(q.fib(2),c))
+      {
+          t3=1; 
+      }
+       if(Arrays.equals(q.fib(3),d))
+      {
+            t4=1;         
+      }
+     if (t1==1)
+
+     {
+
+        System.out.println("Test1 (0  1  1   2    3  ) is passed");
+
+		count++;
+	 }
+
+     else
+
+     {
+
+         System.out.println("Test1 (0  1   1   2    3  ) is failed");
+
+     }
+
+     if (t2==1)
+
+     {
+
+         System.out.println("Test2 (0  1   1   2    3   5   8 ) is passed");
+		 count++;
+
+     }
+
+     else
+
+     {
+
+         System.out.println("Test2 (0  1   1   2    3   5   8 ) is failed");
+     }
+
+     if (t3==1)
+
+     {
+
+         System.out.println("Test3 (0  1 ) is passed");
+	     count++;
+
+     } 
+
+     else
+
+     {
+
+         System.out.println("Test3  (0  1 ) is failed");
+
+     }
+
+     if (t4==1)
+
+     {		  
+
+         System.out.println("Test4  (0   1   1 ) is passed");
+
+		 count++;
+	 } 
+
+     else
+
+     {
+
+        System.out.println("Test4  (0   1   1 ) is failed");
+
+     }
+    if(count==4)
+ {
+System.out.println("");		 
+System.out.println("Your score is 10");
+	 }
+	 else 
+	 {
+System.out.println("");		 
+System.out.println("Your score is 0");
+	 }
+
+   }
+}
+      
